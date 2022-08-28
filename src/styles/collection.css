@@ -1,0 +1,263 @@
+.container {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #1B1C22;
+}
+
+.main {
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.addPlayer {
+    height: 92vh;
+}
+
+.row {
+    cursor: pointer;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table thead {
+    height: 4em;
+}
+
+table tr td:first-child {
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+table tr td:last-child {
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+table td,
+table th {
+    padding: 0.6em;
+}
+
+table tr td:first-child {
+    font-size: 1.5em;
+    width: 40px;
+}
+
+table tr :is(th:first-child, td:first-child) {
+    text-align: center;
+}
+
+table th {
+    text-align: start;
+}
+
+.selectedText {
+    color: #ff3e3e !important;
+}
+
+.row:hover,
+.utilites span:hover,
+.options div:hover {
+    background-color: #25262C;
+}
+
+.info div span {
+    font-size: 1em;
+}
+
+.info div span:first-child {
+    font-size: 1.2em;
+}
+
+.info div span:last-child {
+    color: rgb(255 255 255 / 38%);
+}
+
+
+.player {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0 2em;
+    gap: 2em;
+    height: 8vh;
+    background-color: #121212;
+}
+
+.player audio {
+    display: none;
+}
+
+.utilites {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    /* padding: 1px 2em; */
+}
+
+.play {
+    color: rgb(255 255 255 / 87%) !important;
+}
+
+.player .utilites span {
+    font-size: 1.5em;
+    cursor: pointer;
+    padding: 6px 18px;
+    border-radius: 5px;
+
+}
+
+.player input[type=range] {
+    /* -webkit-appearance: none;
+    -moz-appearance: none;
+    accent-color: #ff3e3e;
+    width: 100%;
+    height: 3px;
+    background-color: rgb(255 255 255 / 38%);
+    color: green; */
+    background: rgb(255 255 255 / 38%);
+    border: none;
+    border-radius: 5px;
+    height: 3px;
+    width: 100%;
+    outline: none;
+    -webkit-appearance: none;
+    cursor: pointer;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    opacity: 0;
+    width: 14px;
+    height: 14px;
+    background: #ff3e3e;
+    border-radius: 50%;
+    /* margin-right: 20px !important; */
+}
+
+.player:hover input[type="range"]::-webkit-slider-thumb {
+    opacity: 1;
+}
+
+.bar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+}
+
+.bar span {
+    padding: 0px 24px;
+    color: rgb(255 255 255 / 60%);
+}
+
+.details {
+    min-width: 20em;
+    display: flex;
+    align-items: center;
+    gap: 1em;
+}
+
+.details div {
+    display: flex;
+    flex-direction: column;
+}
+
+.details div span:last-child {
+    color: rgb(255 255 255 / 38%);
+}
+
+.details img {
+    width: 50px;
+    border-radius: 5px;
+    height: 50px;
+    object-fit: cover;
+}
+
+.options {
+    width: 20em;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    background-color: #191A1F;
+    padding: 0 1em;
+    border-right: 1px solid rgb(255 255 255 / 7%);
+}
+
+.options div {
+    font-size: 1.4em;
+    display: flex;
+    gap: 0.7em;
+    padding: 0.5em 1em;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.collection {
+    width: 100%;
+    overflow-y: auto;
+    padding: 2em;
+}
+
+.info {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1em;
+}
+
+.info img {
+    width: 50px;
+    height: 50px;
+    border-radius: 5px;
+    object-fit: cover;
+}
+
+.info div {
+    display: flex;
+    flex-direction: column;
+}
+
+.albumHeader {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 2em;
+    align-items: end;
+    gap: 2em;
+}
+
+.albumName {
+    font-size: 5em;
+    font-weight: bold;
+}
+
+.albumAuthor {
+    color: rgb(255 255 255 / 60%);
+}
+
+.albumHeader div {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.albumHeader div span {
+    font-size: 1.4em;
+}
+
+.albumHeader img {
+    width: 16em;
+    height: 16em;
+    border-radius: 5px;
+    object-fit: cover;
+    border-radius: 5px;
+}
