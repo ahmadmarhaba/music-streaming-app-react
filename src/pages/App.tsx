@@ -1,28 +1,23 @@
-import React, { useEffect, useRef, useState } from 'react';
-import logo from './logo.svg';
+import { useEffect, useRef, useState } from 'react';
 import '../styles/App.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
-import Upload from './upload';
 import Main from './main';
 import { Progress, Song } from '../components/interfaces';
 import Player from '../components/Player';
-import { Link, NavLink, Route, Router } from 'react-router-dom';
-
+import {
+  BrowserRouter as Router,
+} from "react-router-dom";
 function App() {
-  const defaultSongValue: Song = {
-    id: 0,
-    author: "",
-    authorImage: "",
-    albumName: "",
-    songName: "",
-    songImage: "",
-    songUrl: "",
-    songDuration: 0,
-    songSize: 0,
-    songMimeType: "",
-    cloudinaryId: "",
-  }
-  const [selectedSong, setSelectedSong] = useState<Song>(defaultSongValue);
+  const [selectedSong, setSelectedSong] = useState<Song>({
+    id: "",
+    name: "",
+    image: "",
+    url: "",
+    duration: 0,
+    size: 0,
+    mimeType: "",
+    albumId: "",
+  });
   let playerRef = useRef<any>(null);
   const [audios, setAudios] = useState<Song[]>([]);
   const [progress, setProgress] = useState<Progress>({
@@ -48,11 +43,13 @@ function App() {
   return (
     <>
       {/* <Upload /> */}
-      <Main audios={audios} setAudios={setAudios} selectedSong={selectedSong} playerRef={playerRef} setSelectedSong={setSelectedSong} />
-      {
-        selectedSong && selectedSong.id > 0 && <Player audio={selectedSong} progress={progress} playerRef={playerRef} setSelectedSong={selectedSong} audios={audios} />
-      }
-      <audio src={selectedSong ? selectedSong.songUrl : ''} typeof="audio/mpeg" autoPlay ref={playerRef} id="player" />
+      <Router>
+        <Main audios={audios} setAudios={setAudios} selectedSong={selectedSong} playerRef={playerRef} setSelectedSong={setSelectedSong} />
+        {
+          selectedSong && selectedSong.id.length > 0 && <Player audio={selectedSong} progress={progress} playerRef={playerRef} setSelectedSong={selectedSong} audios={audios} />
+        }
+        <audio src={selectedSong ? selectedSong.url : ''} typeof="audio/mpeg" autoPlay ref={playerRef} id="player" />
+      </Router>
     </>
   );
 }

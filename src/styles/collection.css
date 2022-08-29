@@ -17,7 +17,7 @@
 }
 
 .row {
-    cursor: pointer;
+    /* cursor: pointer; */
     -webkit-user-select: none;
     user-select: none;
 }
@@ -47,6 +47,7 @@ table th {
 }
 
 table tr td:first-child {
+    cursor: pointer;
     font-size: 1.5em;
     width: 40px;
 }
@@ -69,17 +70,7 @@ table th {
     background-color: #25262C;
 }
 
-.info div span {
-    font-size: 1em;
-}
 
-.info div span:first-child {
-    font-size: 1.2em;
-}
-
-.info div span:last-child {
-    color: rgb(255 255 255 / 38%);
-}
 
 
 .player {
@@ -167,14 +158,6 @@ input[type="range"]::-webkit-slider-thumb {
     gap: 1em;
 }
 
-.details div {
-    display: flex;
-    flex-direction: column;
-}
-
-.details div span:last-child {
-    color: rgb(255 255 255 / 38%);
-}
 
 .details img {
     width: 50px;
@@ -189,7 +172,7 @@ input[type="range"]::-webkit-slider-thumb {
     flex-direction: column;
     gap: 1em;
     background-color: #191A1F;
-    padding: 0 1em;
+    padding: 1em;
     border-right: 1px solid rgb(255 255 255 / 7%);
 }
 
@@ -206,13 +189,17 @@ input[type="range"]::-webkit-slider-thumb {
     width: 100%;
     overflow-y: auto;
     padding: 2em;
+    padding-left: 4em;
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
 }
 
 .info {
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap: 1em;
+    gap: 2em;
 }
 
 .info img {
@@ -220,18 +207,42 @@ input[type="range"]::-webkit-slider-thumb {
     height: 50px;
     border-radius: 5px;
     object-fit: cover;
+    cursor: pointer;
 }
 
-.info div {
+.infoDiv {
     display: flex;
     flex-direction: column;
+    gap: 0.1em;
+}
+
+.albumDetails {
+    display: flex;
+    flex-direction: row;
+    gap: 0.6em;
+    color: rgb(255 255 255 / 38%);
+}
+
+.albumDetails span:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.albumDetails span {
+    font-size: 1em;
+
+}
+
+.albumTitle {
+    cursor: pointer;
+    font-size: 1.2em;
 }
 
 .albumHeader {
     display: flex;
     flex-direction: row;
     margin-bottom: 2em;
-    align-items: end;
+    align-items: flex-end;
     gap: 2em;
 }
 

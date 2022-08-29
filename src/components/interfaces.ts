@@ -1,18 +1,29 @@
 export interface Song {
-    id: number
-    author: string
-    authorImage: string
-    albumName: string
-    songName: string
-    songImage: string
-    songUrl: string
-    songDuration: number
-    songSize: number
-    songMimeType: string
-    cloudinaryId: string
+    id: string
+    name: string
+    image: string
+    url: string
+    duration: number
+    size: number
+    mimeType: string
+    albumId: string
+    album?: Album
+}
+export interface Album {
+    id: string
+    name: string
+    image: string
+    authorId: string
+    author?: Author
+}
+export interface Author {
+    id: string
+    name: string
+    image: string
 }
 export interface SongRow {
     index: number,
+    album?: Album,
     audio: Song,
     selectedSong: Song,
     setSelectedSong: any,
@@ -29,11 +40,7 @@ export interface SongPlayer {
     setSelectedSong: any,
     audios: Song[]
 }
-export interface Album {
-    author: string;
-    authorImage: string;
-    albumName: string;
-}
+
 export interface AppMain {
     audios: Song[];
     setAudios: any;
