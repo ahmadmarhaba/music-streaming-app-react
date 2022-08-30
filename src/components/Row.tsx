@@ -1,23 +1,27 @@
+import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { fetchUser } from "../store/actions/userAction";
 import { Song, SongRow } from "./interfaces"
 import { TimeFormat } from "./TimeFormat"
 
-const Row = ({ index, album, audio, selectedSong, setSelectedSong, playerRef }: SongRow) => {
+const Row = ({ index, audio, playerRef }: SongRow) => {
+    const dispatch: any = useDispatch();
+    let { user } = useSelector((state: any) => state.user)
     const navigate = useNavigate();
-    const same = selectedSong.id === audio.id
-    const playing = playerRef.current.duration > 0 && !playerRef.current.paused
+    const [inLibrary, setInLibrary] = useState(user.library.find((music: Song) => audio.id === music.id) ? true : false);
+    const [showMore, setShowMore] = useState(false);
+    const same = user.selectedSong?.id === audio.id
+    const playing = playerRef.current?.duration > 0 && !playerRef.current?.paused
     function playmusic() {
         if (same) {
             if (playing) {
-                playerRef.current.pause();
+                playerRef.current?.pause();
             } else {
-                playerRef.current.play();
+                playerRef.current?.play();
             }
         } else {
-            let song: Song = audio;
-            song.album = album;
-            console.log(song.album)
-            setSelectedSong(song);
+            dispatch(fetchUser({ ...user, selectedSong: audio }))
         }
     }
     return <tr className={`row`}>
@@ -33,14 +37,14 @@ const Row = ({ index, album, audio, selectedSong, setSelectedSong, playerRef }: 
                     <span className={`albumTitle ${same ? 'selectedText' : ''}`}
                         onClick={() => playmusic()}>{audio.name}</span>
                     {
-                        album && <div className="albumDetails">
+                        audio.album && <div className="albumDetails">
                             <span onClick={() => {
-                                navigate(`/artist?id=${album.author?.id}`)
-                            }}>{album.author?.name}</span>
+                                navigate(`/artist?id=${audio.album.author?.id}`)
+                            }}>{audio.album.author?.name}</span>
                             {`-`}
                             <span onClick={() => {
-                                navigate(`/playlist?id=${album.id}`)
-                            }}>{album.name}</span></div>
+                                navigate(`/playlist?id=${audio.album.id}`)
+                            }}>{audio.album.name}</span></div>
                     }
                 </div>
             </div>
@@ -48,8 +52,30 @@ const Row = ({ index, album, audio, selectedSong, setSelectedSong, playerRef }: 
         <td>
             <TimeFormat time={audio.duration} />
         </td>
-        <td>
-            <i className="bi bi-three-dots"></i>
+        <td className="inLibrary">
+            {
+                showMore &&
+                <div onClick={() => {
+                    if (user.library == null) user.library = [];
+                    const song = user.library.find((music: Song) => audio.id === music.id);
+                    const index = user.library.indexOf(song);
+                    if (index !== -1) {
+                        user.library.splice(index, 1);
+                    } else {
+                        user.library.push(audio);
+                    }
+                    dispatch(fetchUser({ ...user, library: user.library }))
+                    setInLibrary(index === -1)
+                    setShowMore(false)
+                }}>
+                    {
+                        !inLibrary ? "Add to Library" : "Remove from Library"
+                    }
+                </div>
+            }
+            <i className={`bi bi-${showMore ? "x-lg" : "three-dots"}`}
+                onClick={() => setShowMore(!showMore)}
+            ></i>
         </td>
     </tr>
 }

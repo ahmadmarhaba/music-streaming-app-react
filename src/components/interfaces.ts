@@ -1,3 +1,10 @@
+export interface User {
+    library: Array<Song>,
+    playerRef: any,
+    selectedSong?: Song,
+    songsList?: Song[]
+}
+
 export interface Song {
     id: string
     name: string
@@ -7,14 +14,14 @@ export interface Song {
     size: number
     mimeType: string
     albumId: string
-    album?: Album
+    album: Album
 }
 export interface Album {
     id: string
     name: string
     image: string
     authorId: string
-    author?: Author
+    author: Author
 }
 export interface Author {
     id: string
@@ -23,10 +30,7 @@ export interface Author {
 }
 export interface SongRow {
     index: number,
-    album?: Album,
     audio: Song,
-    selectedSong: Song,
-    setSelectedSong: any,
     playerRef: any
 }
 export interface Progress {
@@ -34,17 +38,10 @@ export interface Progress {
     duration: number;
 }
 export interface SongPlayer {
-    audio: Song,
     progress: Progress,
     playerRef: any,
-    setSelectedSong: any,
-    audios: Song[]
 }
 
 export interface AppMain {
-    audios: Song[];
-    setAudios: any;
-    selectedSong: Song;
     playerRef: any;
-    setSelectedSong: any;
 }

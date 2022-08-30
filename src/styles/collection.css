@@ -58,6 +58,8 @@ table tr :is(th:first-child, td:first-child) {
 
 table th {
     text-align: start;
+    font-weight: 500;
+    color: rgb(255 255 255 / 60%);
 }
 
 .selectedText {
@@ -71,20 +73,56 @@ table th {
 }
 
 
+.inLibrary i:hover {
+    color: #ff3e3e !important;
+}
 
+.inLibrary i {
+    cursor: pointer;
+}
+
+.inLibrary div:hover {
+    background-color: #25262C;
+}
+
+.inLibrary div {
+    position: absolute;
+    cursor: pointer;
+    top: 50%;
+    right: 78px;
+    width: 12em;
+    -ms-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+    border: 1px solid #727276;
+    color: rgb(255 255 255 / 60%);
+    box-shadow: 0px 0px 8px 0px rgb(0 0 0 / 20%);
+    background-color: #191A1F;
+    padding: 1em 2em;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.inLibrary {
+    position: relative;
+    text-align: end;
+    padding-right: 2em;
+}
 
 .player {
     display: flex;
-    flex-direction: row;
-    align-items: center;
-    padding: 0 2em;
-    gap: 2em;
+    flex-direction: column;
+    /* align-items: center; */
+    /* padding: 0 2em; */
     height: 8vh;
     background-color: #121212;
 }
 
-.player audio {
-    display: none;
+.inside {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    justify-content: space-between;
+    padding: 1em 2em;
 }
 
 .utilites {
@@ -106,7 +144,18 @@ table th {
 
 }
 
-.player input[type=range] {
+.bar input {
+    width: 100%;
+    margin: 0;
+}
+
+.volume {
+    accent-color: #ff3e3e;
+    height: 3px;
+    margin-left: 1em;
+}
+
+.bar input[type=range] {
     /* -webkit-appearance: none;
     -moz-appearance: none;
     accent-color: #ff3e3e;
@@ -116,15 +165,13 @@ table th {
     color: green; */
     background: rgb(255 255 255 / 38%);
     border: none;
-    border-radius: 5px;
     height: 3px;
-    width: 100%;
     outline: none;
     -webkit-appearance: none;
     cursor: pointer;
 }
 
-input[type="range"]::-webkit-slider-thumb {
+.bar input[type="range"]::-webkit-slider-thumb {
     -webkit-appearance: none;
     -moz-appearance: none;
     opacity: 0;
@@ -135,7 +182,11 @@ input[type="range"]::-webkit-slider-thumb {
     /* margin-right: 20px !important; */
 }
 
-.player:hover input[type="range"]::-webkit-slider-thumb {
+.bar:hover input[type="range"] {
+    height: 7px;
+}
+
+.bar:hover input[type="range"]::-webkit-slider-thumb {
     opacity: 1;
 }
 
@@ -144,6 +195,7 @@ input[type="range"]::-webkit-slider-thumb {
     flex-direction: row;
     align-items: center;
     width: 100%;
+    height: 0px;
 }
 
 .bar span {
@@ -152,10 +204,10 @@ input[type="range"]::-webkit-slider-thumb {
 }
 
 .details {
-    min-width: 20em;
     display: flex;
     align-items: center;
     gap: 1em;
+    width: 25em;
 }
 
 
@@ -176,6 +228,13 @@ input[type="range"]::-webkit-slider-thumb {
     border-right: 1px solid rgb(255 255 255 / 7%);
 }
 
+.options div:first-child {
+    color: rgb(255 255 255 / 38%);
+    background-color: transparent !important;
+    cursor: default;
+    user-select: none;
+}
+
 .options div {
     font-size: 1.4em;
     display: flex;
@@ -183,6 +242,7 @@ input[type="range"]::-webkit-slider-thumb {
     padding: 0.5em 1em;
     border-radius: 5px;
     cursor: pointer;
+    color: rgb(255 255 255 / 60%);
 }
 
 .collection {
@@ -208,6 +268,7 @@ input[type="range"]::-webkit-slider-thumb {
     border-radius: 5px;
     object-fit: cover;
     cursor: pointer;
+    box-shadow: 0px 0px 8px 0px rgb(0 0 0 / 20%);
 }
 
 .infoDiv {
@@ -236,14 +297,28 @@ input[type="range"]::-webkit-slider-thumb {
 .albumTitle {
     cursor: pointer;
     font-size: 1.2em;
+    color: rgb(255 255 255 / 60%);
 }
 
 .albumHeader {
     display: flex;
     flex-direction: row;
-    margin-bottom: 2em;
     align-items: flex-end;
     gap: 2em;
+}
+
+.duration {
+    color: rgb(255 255 255 / 38%);
+}
+
+.timeShown {
+    display: flex;
+    flex-direction: row;
+    color: rgb(255 255 255 / 38%);
+    gap: 0.6em;
+    font-size: 1em;
+    align-items: center;
+    margin-left: 1em;
 }
 
 .albumName {
@@ -271,4 +346,5 @@ input[type="range"]::-webkit-slider-thumb {
     border-radius: 5px;
     object-fit: cover;
     border-radius: 5px;
+    box-shadow: 0px 0px 8px 0px rgb(0 0 0 / 20%);
 }

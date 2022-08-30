@@ -1,25 +1,18 @@
 import { useEffect, useRef, useState } from 'react';
 import '../styles/App.css';
-import 'bootstrap-icons/font/bootstrap-icons.css';
 import Main from './main';
 import { Progress, Song } from '../components/interfaces';
 import Player from '../components/Player';
 import {
   BrowserRouter as Router,
 } from "react-router-dom";
+import { useSelector } from 'react-redux';
+
 function App() {
-  const [selectedSong, setSelectedSong] = useState<Song>({
-    id: "",
-    name: "",
-    image: "",
-    url: "",
-    duration: 0,
-    size: 0,
-    mimeType: "",
-    albumId: "",
-  });
+
+  let { user } = useSelector((state: any) => state.user)
   let playerRef = useRef<any>(null);
-  const [audios, setAudios] = useState<Song[]>([]);
+
   const [progress, setProgress] = useState<Progress>({
     currentTime: 0,
     duration: 0
@@ -40,17 +33,15 @@ function App() {
       playerRef.current.currentTime = 0;
     });
   }, [])
+
   return (
-    <>
-      {/* <Upload /> */}
-      <Router>
-        <Main audios={audios} setAudios={setAudios} selectedSong={selectedSong} playerRef={playerRef} setSelectedSong={setSelectedSong} />
-        {
-          selectedSong && selectedSong.id.length > 0 && <Player audio={selectedSong} progress={progress} playerRef={playerRef} setSelectedSong={selectedSong} audios={audios} />
-        }
-        <audio src={selectedSong ? selectedSong.url : ''} typeof="audio/mpeg" autoPlay ref={playerRef} id="player" />
-      </Router>
-    </>
+    <Router>
+      <Main playerRef={playerRef} />
+      {
+        user.selectedSong && user.selectedSong.id.length > 0 && <Player progress={progress} playerRef={playerRef} />
+      }
+      <audio src={user.selectedSong ? user.selectedSong.url : ''} typeof="audio/mpeg" autoPlay ref={playerRef} />
+    </Router>
   );
 }
 

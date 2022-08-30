@@ -1,21 +1,25 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Link, Navigate, useNavigate } from "react-router-dom";
+import { fetchUser } from "../store/actions/userAction";
 import '../styles/Explore.css'
 import { Album, Author, Song } from "./interfaces";
 import Row from "./Row";
 
 
-const Explore = ({ setSelectedSong, selectedSong, playerRef }: any) => {
-    const [popularList, setPopularList] = useState<Song[]>([])
+const Explore = ({ playerRef }: any) => {
+
     const [suggestList, setSuggestList] = useState<Author[]>([])
     const navigate = useNavigate();
+    const dispatch: any = useDispatch();
+    let { user } = useSelector((state: any) => state.user)
     useEffect(() => {
         axios.get(`http://localhost:4000/api/explore`).then((response: any) => {
             const suggest = response.data.suggest;
             const popular = response.data.popular;
             setSuggestList(suggest);
-            setPopularList(popular);
+            dispatch(fetchUser({ ...user, songsList: popular }))
         }).catch(() => {
             console.error('Oooops, something went wrong!')
         })
@@ -36,7 +40,7 @@ const Explore = ({ setSelectedSong, selectedSong, playerRef }: any) => {
                                     let song: Song = author.Albums[0].Songs[0];
                                     song.album = author.Albums[0] as Album;
                                     song.album.author = author;
-                                    setSelectedSong(song)
+                                    dispatch(fetchUser({ ...user, selectedSong: song }))
                                 }}>{author.Albums[0].Songs[0].name}</span>
                             </div>
                         </div>
@@ -48,9 +52,9 @@ const Explore = ({ setSelectedSong, selectedSong, playerRef }: any) => {
             <div className="title">Popular</div>
             <table>
                 <tbody>
-                    {popularList && popularList.length > 0 &&
-                        popularList.map((audio: Song, index: number) => {
-                            return <Row key={audio.id} index={index} audio={audio} setSelectedSong={setSelectedSong} selectedSong={selectedSong} playerRef={playerRef} album={audio.album} />
+                    {user.songsList && user.songsList.length > 0 &&
+                        user.songsList.map((audio: Song, index: number) => {
+                            return <Row key={audio.id} index={index} audio={audio} playerRef={playerRef} />
                         })
                     }
                 </tbody>
