@@ -2,7 +2,7 @@
   "name": "music-streaming-app-react",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://ahmadmarhaba.github.io/music-app",
+  "homepage": "https://ahmadmarhaba.github.io/music-streaming-app-react",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.3.0",
