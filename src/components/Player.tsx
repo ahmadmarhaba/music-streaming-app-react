@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react"
+import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { fetchUser } from "../store/actions/userAction";
@@ -51,6 +51,7 @@ const Player = ({ progress, playerRef }: SongPlayer) => {
     }
     useEffect(() => {
         playerRef.current.volume = volume / 100;
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [volume])
     const percent = progress.currentTime / progress.duration * 100;
     const linear = 'linear-gradient(to right, #ff3e3e 0%, #ff3e3e ' + percent + '%, rgb(255 255 255 / 38%) ' + percent + '%, rgb(255 255 255 / 38%) 100%)';

@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import '../styles/App.css';
 import Main from './main';
-import { Progress, Song } from '../components/interfaces';
+import { Progress } from '../components/interfaces';
 import Player from '../components/Player';
 import {
   BrowserRouter as Router,

@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, Navigate, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { fetchUser } from "../store/actions/userAction";
 import '../styles/Explore.css'
 import { Album, Author, Song } from "./interfaces";
@@ -23,6 +23,7 @@ const Explore = ({ playerRef }: any) => {
         }).catch(() => {
             console.error('Oooops, something went wrong!')
         })
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
     return <>
         <div className="suggest">

@@ -12,7 +12,7 @@ const Library = ({ playerRef }: any) => {
             ...user,
             songsList: user.library
         }))
-        // console.log(user)
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
     return <>
         <div className="title">My Music</div>

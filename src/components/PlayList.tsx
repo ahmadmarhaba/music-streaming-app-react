@@ -11,7 +11,7 @@ const PlayList = ({ playerRef }: any) => {
     let { user } = useSelector((state: any) => state.user)
 
     const params = new URLSearchParams(window.location.search);
-    const [albumParam, setAlbumParam] = useState(params.get('id'));
+    const [albumParam] = useState(params.get('id'));
 
     const [album, setAlbum] = useState<Album>({
         id: "",
@@ -40,12 +40,13 @@ const PlayList = ({ playerRef }: any) => {
         }).catch(() => {
             console.error('Oooops, something went wrong!')
         })
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [albumParam])
 
     if (!albumParam || !album) return <>loading</>
     return <>
         <div className="albumHeader">
-            <img src={album.image} />
+            <img src={album.image} alt="Album" />
             <div>
                 <span>{`PLAYLIST`}</span>
                 <div className="albumName">{album.name}</div>

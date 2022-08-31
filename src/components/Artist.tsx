@@ -1,12 +1,11 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Album, Author, Song } from "./interfaces";
-import Row from "./Row";
+import { Album, Author } from "./interfaces";
 import { useNavigate } from 'react-router-dom';
 const Artist = () => {
     const navigate = useNavigate();
     const params = new URLSearchParams(window.location.search);
-    const [authorParam, setAuthorParam] = useState(params.get('id'));
+    const [authorParam] = useState(params.get('id'));
     const [author, setAuthor] = useState<Author>({
         id: "",
         name: "",
@@ -27,7 +26,7 @@ const Artist = () => {
     if (!authorParam || !author) return <>loading</>
     return <>
         <div className="albumHeader">
-            <img src={author.image} />
+            <img src={author.image} alt="artist" />
             <div>
                 <span>{`ARTIST`}</span>
                 <div className="albumName">{author.name}</div>
