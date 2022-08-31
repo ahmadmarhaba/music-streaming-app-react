@@ -37,7 +37,6 @@ const Artist = () => {
                 <tr>
                     <th>#</th>
                     <th>Album</th>
-                    <th></th>
                 </tr>
             </thead>
             <tbody>
@@ -63,9 +62,6 @@ const Artist = () => {
                                         }
                                     </div>
                                 </div>
-                            </td>
-                            <td>
-                                <i className="bi bi-three-dots"></i>
                             </td>
                         </tr>
                     })
