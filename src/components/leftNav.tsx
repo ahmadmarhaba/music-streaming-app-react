@@ -5,7 +5,7 @@ const LeftNav = () => {
 
     return <div className="options">
         <div>Music App</div>
-        <div className={window.location.pathname === "/explore" ? "selectedText" : ''} onClick={() => { navigate("/explore") }}>
+        <div className={window.location.pathname === "/explore" || window.location.pathname === "/music-streaming-app-react" ? "selectedText" : ''} onClick={() => { navigate("/explore") }}>
             <i className="bi bi-compass"></i>
             <span>Explore</span>
         </div>
