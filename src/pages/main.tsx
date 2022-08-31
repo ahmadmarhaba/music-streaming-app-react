@@ -31,6 +31,7 @@ const Main = ({ playerRef }: AppMain) => {
               <Route path="/library" element={<Library playerRef={playerRef} />} />
 
               <Route path="/explore" element={<Explore playerRef={playerRef} />} />
+              <Route path="/" element={<Explore playerRef={playerRef} />} />
             </Routes>
           </div>
         </div>
