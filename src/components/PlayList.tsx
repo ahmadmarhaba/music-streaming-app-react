@@ -25,7 +25,7 @@ const PlayList = ({ playerRef }: any) => {
         }
     });
     useEffect(() => {
-        albumParam && axios.get(`http://localhost:4000/api/playlist?id=${albumParam}`).then((response: any) => {
+        albumParam && axios.get(`https://ahmadmarhaba-music-app-nodejs.herokuapp.com/api/playlist?id=${albumParam}`).then((response: any) => {
             const tempSongs: Song[] = response.data.Songs;
             const tempAlbum: Album = {
                 author: response.data.author as Author,
