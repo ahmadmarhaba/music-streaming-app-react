@@ -11,7 +11,7 @@ const TopNav = () => {
     const navigate = useNavigate();
     const [searchList, setSearchList] = useState<Song[]>([]);
     function search(text: string) {
-        axios.get(`https://ahmadmarhaba-music-app-nodejs.herokuapp.com/api/search?text=${text}`).then((response: any) => {
+        axios.get(`${process.env.REACT_APP_ENV ? "http://localhost:4000" : "https://ahmadmarhaba-music-app-nodejs.herokuapp.com"}/api/search?text=${text}`).then((response: any) => {
             setSearchList(response.data)
         }).catch(() => {
             console.error('Oooops, something went wrong!')

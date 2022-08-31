@@ -27,7 +27,7 @@ const Upload = () => {
     // formData.append('songName', songName);
     // formData.append('songImage', songImage);
 
-    axios.post("https://ahmadmarhaba-music-app-nodejs.herokuapp.com/api/upload", formData, {
+    axios.post(`${process.env.REACT_APP_ENV ? "http://localhost:4000" : "https://ahmadmarhaba-music-app-nodejs.herokuapp.com"}/api/upload`, formData, {
       onUploadProgress: function (progressEvent) {
         var percentCompleted = Math.round((progressEvent.loaded * 100) / progressEvent.total)
       },

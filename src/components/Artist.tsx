@@ -13,7 +13,7 @@ const Artist = () => {
     })
     const [albums, setAlbums] = useState<Album[]>([]);
     useEffect(() => {
-        authorParam && axios.get(`https://ahmadmarhaba-music-app-nodejs.herokuapp.com/api/artist?id=${authorParam}`).then((response: any) => {
+        authorParam && axios.get(`${process.env.REACT_APP_ENV ? "http://localhost:4000" : "https://ahmadmarhaba-music-app-nodejs.herokuapp.com"}/api/artist?id=${authorParam}`).then((response: any) => {
             const tempAuth: Author = response.data.author;
             const tempAlb: Album[] = response.data.albums;
             setAuthor(tempAuth)

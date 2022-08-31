@@ -15,7 +15,7 @@ const Explore = ({ playerRef }: any) => {
     const dispatch: any = useDispatch();
     let { user } = useSelector((state: any) => state.user)
     useEffect(() => {
-        axios.get(`https://ahmadmarhaba-music-app-nodejs.herokuapp.com/api/explore`).then((response: any) => {
+        axios.get(`${process.env.REACT_APP_ENV ? "http://localhost:4000" : "https://ahmadmarhaba-music-app-nodejs.herokuapp.com"}/api/explore`).then((response: any) => {
             const suggest = response.data.suggest;
             const popular = response.data.popular;
             setSuggestList(suggest);
