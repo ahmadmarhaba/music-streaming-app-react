@@ -1,1 +1,0 @@
-This is music streaming app made with react, postgresql, prisma, and cloudinary
