@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/music-app/static/css/main.7e221fe5.css",
-    "main.js": "/music-app/static/js/main.6e18b75e.js",
-    "static/js/787.64c93264.chunk.js": "/music-app/static/js/787.64c93264.chunk.js",
-    "static/media/bootstrap-icons.woff?": "/music-app/static/media/bootstrap-icons.e559bf06bc84fd9525e6.woff",
-    "static/media/bootstrap-icons.woff2?": "/music-app/static/media/bootstrap-icons.ea98e12d2d58747f9fc5.woff2",
-    "index.html": "/music-app/index.html",
-    "main.7e221fe5.css.map": "/music-app/static/css/main.7e221fe5.css.map",
-    "main.6e18b75e.js.map": "/music-app/static/js/main.6e18b75e.js.map",
-    "787.64c93264.chunk.js.map": "/music-app/static/js/787.64c93264.chunk.js.map"
+    "main.css": "/music-streaming-app-react/static/css/main.9610bece.css",
+    "main.js": "/music-streaming-app-react/static/js/main.4b4158e2.js",
+    "static/js/787.64c93264.chunk.js": "/music-streaming-app-react/static/js/787.64c93264.chunk.js",
+    "static/media/bootstrap-icons.woff?": "/music-streaming-app-react/static/media/bootstrap-icons.e559bf06bc84fd9525e6.woff",
+    "static/media/bootstrap-icons.woff2?": "/music-streaming-app-react/static/media/bootstrap-icons.ea98e12d2d58747f9fc5.woff2",
+    "index.html": "/music-streaming-app-react/index.html",
+    "main.9610bece.css.map": "/music-streaming-app-react/static/css/main.9610bece.css.map",
+    "main.4b4158e2.js.map": "/music-streaming-app-react/static/js/main.4b4158e2.js.map",
+    "787.64c93264.chunk.js.map": "/music-streaming-app-react/static/js/787.64c93264.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.7e221fe5.css",
-    "static/js/main.6e18b75e.js"
+    "static/css/main.9610bece.css",
+    "static/js/main.4b4158e2.js"
   ]
 }
