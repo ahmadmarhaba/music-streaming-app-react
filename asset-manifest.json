@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/music-streaming-app-react/static/css/main.85dd73b8.css",
-    "main.js": "/music-streaming-app-react/static/js/main.135be815.js",
+    "main.js": "/music-streaming-app-react/static/js/main.4e9a00e6.js",
     "static/js/787.64c93264.chunk.js": "/music-streaming-app-react/static/js/787.64c93264.chunk.js",
     "static/media/bootstrap-icons.woff?": "/music-streaming-app-react/static/media/bootstrap-icons.e559bf06bc84fd9525e6.woff",
     "static/media/bootstrap-icons.woff2?": "/music-streaming-app-react/static/media/bootstrap-icons.ea98e12d2d58747f9fc5.woff2",
     "index.html": "/music-streaming-app-react/index.html",
     "main.85dd73b8.css.map": "/music-streaming-app-react/static/css/main.85dd73b8.css.map",
-    "main.135be815.js.map": "/music-streaming-app-react/static/js/main.135be815.js.map",
+    "main.4e9a00e6.js.map": "/music-streaming-app-react/static/js/main.4e9a00e6.js.map",
     "787.64c93264.chunk.js.map": "/music-streaming-app-react/static/js/787.64c93264.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.85dd73b8.css",
-    "static/js/main.135be815.js"
+    "static/js/main.4e9a00e6.js"
   ]
 }
